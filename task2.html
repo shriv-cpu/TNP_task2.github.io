@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Speaker Session Registration</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+
+        .hero {
+            background: #174f55;
+            color: white;
+            padding: 50px 20px;
+        }
+
+        .hero p {
+            max-width: 800px;
+            margin: 10px auto;
+            font-size: 18px;
+        }
+
+        .register-section {
+            background-image: url('uitrgpvv.jpg'); /* Replace with your image */
+            background-size: cover;
+            background-position: center;
+            padding: 50px 0;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            text-align: left;
+            margin: 10px 0 5px;
+        }
+
+        input, select, button {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            background: #174f55;
+            color: white;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #0c2d30;
+        }
+
+        .check-options {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .check-options button {
+            width: 48%;
+        }
+
+        @media (max-width: 600px) {
+            .check-options {
+                flex-direction: column;
+            }
+
+            .check-options button {
+                width: 100%;
+                margin-bottom: 5px;
+            }
+        }
+    </style>
+    <script>
+        function validateForm() {
+            let name = document.forms["rsvpForm"]["name"].value;
+            let email = document.forms["rsvpForm"]["email"].value;
+            let phone = document.forms["rsvpForm"]["phone"].value;
+            let college = document.forms["rsvpForm"]["college"].value;
+            let studentType = document.forms["rsvpForm"]["studentType"].value;
+            let branch = document.forms["rsvpForm"]["branch"].value;
+            let rollNumber = document.forms["rsvpForm"]["rollNumber"].value;
+            
+            if (name == "" || email == "" || phone == "" || college == "" || studentType == "" || branch == "" || rollNumber == "") {
+                alert("All fields must be filled out");
+                return false;
+            }
+
+            let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailPattern.test(email)) {
+                alert("Please enter a valid email address");
+                return false;
+            }
+
+            let phonePattern = /^[0-9]{10}$/;
+            if (!phonePattern.test(phone)) {
+                alert("Please enter a valid 10-digit phone number");
+                return false;
+            }
+
+            alert("Registration successful!");
+            return true;
+        }
+    </script>
+</head>
+<body>
+    <div class="hero">
+        <h1>Finding the Balance Between Learning & Earning</h1>
+        <p>Join us for an insightful speaker session on achieving the perfect balance between gaining knowledge and financial independence.</p>
+        <p><strong>Date:</strong> April 20, 2025</p>
+        <p><strong>Time:</strong> 10:00 AM - 12:00 PM</p>
+        <p><strong>Location:</strong> University Auditorium, Bhopal</p>
+    </div>
+
+    <div class="register-section">
+        <div class="container">
+            <h2>Register Now</h2>
+            <form name="rsvpForm" onsubmit="return validateForm()">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="phone">Phone Number</label>
+                <input type="text" id="phone" name="phone" required>
+
+                <label for="college">College/University</label>
+                <input type="text" id="college" name="college" required>
+
+                <label for="studentType">Select Student Type</label>
+                <select id="studentType" name="studentType" required>
+                    <option value="">-- Select --</option>
+                    <option value="Undergraduate">Undergraduate</option>
+                    <option value="Postgraduate">Postgraduate</option>
+                    <option value="PhD">PhD</option>
+                </select>
+
+                <label for="branch">Select Branch</label>
+                <select id="branch" name="branch" required>
+                    <option value="">-- Select --</option>
+                    <option value="Computer Science">Computer Science</option>
+                    <option value="Mechanical Engineering">Mechanical Engineering</option>
+                    <option value="Electrical Engineering">Electrical Engineering</option>
+                    <option value="Civil Engineering">Civil Engineering</option>
+                    <option value="Electronics And Communication">Electronics And Communication</option>
+                    <option value="Automobile">Automobile</option>
+                </select>
+
+                <label for="rollNumber">Roll Number</label>
+                <input type="text" id="rollNumber" name="rollNumber" required>
+
+                <label for="attendance">Will you attend?</label>
+                <select id="attendance" name="attendance" required>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                </select>
+
+                <button type="submit">Submit RSVP</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="container">
+        <h2>Check In / Check Out</h2>
+        <div class="check-options">
+            <button onclick="alert('Checked In Successfully!')">Check In</button>
+            <button onclick="alert('Checked Out Successfully!')">Check Out</button>
+        </div>
+    </div>
+</body>
+</html>
